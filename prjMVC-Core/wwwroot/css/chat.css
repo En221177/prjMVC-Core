@@ -1,0 +1,29 @@
+﻿.left-eye {
+    width: 6px; 
+    height: 6px;
+    background: white;
+    top: 45%;
+    left: 19% ;
+    position: absolute;
+    border-radius: 50px;
+}
+.mouth {
+    width: 6px;
+    height: 6px;
+    background: white;
+    top: 45% ;
+    left: 45% ;
+    position: absolute;
+    border-radius: 50px;
+}
+.right-eye {
+    width: 6px;
+    height: 6px;
+    background: white;
+    top: 45% ;
+    right: 19%;
+    position: absolute;
+    border-radius: 50px;
+}
+
+/*!important;*/

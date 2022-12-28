@@ -1,0 +1,89 @@
+﻿@model IEnumerable<prjMVC_Core.Models.TPainent>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>客戶總表</h1>
+<div>
+    @using (Html.BeginForm())
+    {
+        @:關鍵字 @Html.TextBox("txtKeyword")
+        <input type="submit" value="查詢">
+    }
+</div>
+
+<p>
+    <a asp-action="Craete">新增客戶</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fld)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.F健保卡號)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.F身分證號)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 0;
+            foreach (var item in Model)
+            {
+                count++;
+                    <tr>
+                        <td>
+                           @count
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FPhone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FPassword)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.F健保卡號)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.F身分證號)
+                        </td>
+                        <td>
+                        @Html.ActionLink("Edit", "Edit", new {  id=item.Fld  }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new {  id=item.Fld },new { onclick = "return confirm('確定是刪除?')"})
+                        </td>
+                    </tr>
+            }
+        }
+    </tbody>
+</table>
