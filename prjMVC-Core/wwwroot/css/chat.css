@@ -25,5 +25,15 @@
     position: absolute;
     border-radius: 50px;
 }
+.chat {
+    background: rgb(191, 169, 154);
+    width: 60px;
+    height: 60px;
+    border-radius: 50px 50px 0 50px;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    display: flex;
+}
 
 /*!important;*/

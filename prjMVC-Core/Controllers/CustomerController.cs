@@ -6,23 +6,18 @@ namespace prjMVC_Core.Controllers
 {
     public class CustomerController : Controller
     {
+
+
+
+
+
         [HttpPost]
         public IActionResult Edit(TPainent P)
         {
             dbDemoContext db = new dbDemoContext();
             TPainent customer = db.TPainents.FirstOrDefault(t => t.Fld == P.Fld);
             if (customer != null)
-            {
-                //if (P.Photo != null) //參數要一致所以把Photo放在calss tProduct裡一起送進來
-                //{
-                //    string oldPath = Server.MapPath("../../Images/" + prod.fPhotoPath);
-                //    if (System.IO.File.Exists(oldPath))//如果以存再就刪除
-                //        System.IO.File.Delete(oldPath);
-
-                //    string photoName = Guid.NewGuid().ToString() + ".jpg";//產生唯一字串
-                //    prod.fPhotoPath = photoName;
-                //    P.Photo.SaveAs(Server.MapPath("../../Images/" + photoName));
-                //}
+            {             
                 customer.FName = P.FName;
                 customer.FPhone = P.FPhone;
                 customer.FEmail = P.FEmail;
@@ -47,6 +42,9 @@ namespace prjMVC_Core.Controllers
             return RedirectToAction("List");
         }
 
+
+
+
         public IActionResult Delete(int? id)
         {
             dbDemoContext db = new dbDemoContext();
@@ -58,9 +56,6 @@ namespace prjMVC_Core.Controllers
             }
             return RedirectToAction("List");
         }
-
-
-
 
 
 
@@ -78,6 +73,9 @@ namespace prjMVC_Core.Controllers
                 datas = db.TPainents.Where(c => c.FName.Contains(keyword)).ToList();
             return View(datas);
         }
+
+
+
 
         public IActionResult Craete()
         {

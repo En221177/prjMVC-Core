@@ -26,6 +26,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="List">Coustomer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="List">Product</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -37,7 +43,7 @@
         </main>
     </div>
 
-    <div id="chat" style="background: rgb(191, 169, 154); width: 60px; height: 60px; border-radius: 50px 50px 0 50px; position: absolute; right: 15px; bottom: 15px; display: flex">
+    <div id="chat" class="chat">
         <div id="left-eye" class="left-eye"></div>
         <div id="mouth" class="mouth"></div>
         <div id="right-eye" class="right-eye"></div>
@@ -53,44 +59,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script>
-        $("#chat").hover(function () {
-            $("#left-eye").css({ 
-                "top": "30%" ,
-                "left": "25% "
-            });
-            $("#right-eye").css({
-                "top": "30%",
-                "right": "25% "
-            });
-            $("#mouth").css({
-                   "left": "15 px" ,
-                    "width": "20px",
-                    "height": "20px",
-                "border-radius": "0 50px 50px 0"
-                });
-            //console.log("in");
-        },
-            function () {
-                $("#left-eye").css("background", "white")
-                $("#left-eye").css({
-                    "top": "45%",
-                    "left": "19% "
-                });
-                $("#right-eye").css({
-                    "top": "45%",
-                    "right": "19% "
-                });
-                $("#mouth").css({
-                    "left": "45 %",
-                    "width": "6px",
-                    "height": "6px"
-                });
-                //console.log("out");
-            })
-
-
-    </script>
+    <script src="~/js/jq.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
