@@ -1,18 +1,23 @@
 ﻿@model prjMVC_Core.ViewModels.CProductViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>新增產品</h1>
+<h1>修改產品</h1>
 
-
+<h4>修改</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
+            <input type="hidden" name="FId" value="@Model.FId" />
+            @* <div class="form-group">
+            <label asp-for="FId" class="control-label"></label>
+            <input asp-for="FId" class="form-control" />
+            <span asp-validation-for="FId" class="text-danger"></span>
+            </div>*@
             <div class="form-group">
                 <label asp-for="FName" class="control-label"></label>
                 <input asp-for="FName" class="form-control" />
@@ -33,13 +38,19 @@
                 <input asp-for="FPrice" class="form-control" />
                 <span asp-validation-for="FPrice" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+            <label asp-for="FPhotoPath" class="control-label"></label>
+            <input asp-for="FPhotoPath" class="form-control" />
+            <span asp-validation-for="FPhotoPath" class="text-danger"></span>
+            </div>*@
             <div class="form-group">
-                <label asp-for="FPhotoPath" class="control-label"></label>
-                <input asp-for="FPhotoPath" class="form-control" />
-                <span asp-validation-for="FPhotoPath" class="text-danger"></span>
+                產品照片
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="file" name="Photo" />  @*name是要送回去的參數，名稱要一致目前放在class tProduct裡一起送過去ProductController執行*@
+                </div>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -50,5 +61,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<prjMVC_Core.Models.TProduct>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>購物</h1>
+
+<p>
+    <a asp-action="ShoppingView">檢視購物車</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+            @Html.DisplayNameFor(model => model.FId)
+            </th>*@
+            序號
+            <th>
+                @Html.DisplayNameFor(model => model.FName)
+            </th>
+            @* <th>
+            @Html.DisplayNameFor(model => model.FQty)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.FCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPhotoPath)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 0;
+            foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>
+                        @count
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FCost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FPrice)
+                    </td>
+                    <td>
+                        @if (item.FPhotoPath != null)
+                        {
+                            <img src="~/Images/@item.FPhotoPath" width="200" />
+                        }
+                        else
+                        {
+                            <img src="~/Images/404.jpg" width="200" />
+                        }
+                        <br />
+                    </td>
+                    <td>
+                        @Html.ActionLink("加入購物車", "AddToCart", new { id = item.FId })                        
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

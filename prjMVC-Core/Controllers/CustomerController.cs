@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using prjMVC_Core.Models;
 using prjMVC_Core.ViewModels;
+using System.Text.Json;
 
 namespace prjMVC_Core.Controllers
 {
-    public class CustomerController : Controller
+    public class CustomerController : SuperController
     {
 
 
@@ -62,7 +63,7 @@ namespace prjMVC_Core.Controllers
 
         public IActionResult List(CKeywordViewModels vm)
         {
-
+           
             dbDemoContext db = new dbDemoContext();
             string keyword =vm.txtKeyword;
             IEnumerable<TPainent> datas = null;
